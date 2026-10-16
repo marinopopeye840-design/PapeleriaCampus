@@ -76,8 +76,6 @@ public class ProductoController {
         cargarProductos();
     }
 
-
-    // Configuración del TableView
     private void configurarTabla() {
 
         colId.setCellValueFactory(data ->
@@ -113,8 +111,6 @@ public class ProductoController {
         btlProductos.setItems(listaProductos);
     }
 
-
-    // Configuración de los ComboBox
     private void configurarComboBox() {
 
         cmbCategoria.setItems(
@@ -137,8 +133,6 @@ public class ProductoController {
         cmbCategoriaFiltro.setValue("Todas");
     }
 
-
-    // Seleccionar un producto de la tabla
     private void configurarSeleccionTableView() {
 
         btlProductos.getSelectionModel()
@@ -154,7 +148,6 @@ public class ProductoController {
     }
 
 
-    // Cargar los datos seleccionados en el formulario
     private void cargarProductoEnFormulario(Producto producto) {
 
         txtCodigo.setText(producto.getCodigo());
@@ -165,7 +158,7 @@ public class ProductoController {
     }
 
 
-    // Mostrar todos los productos
+
     private void cargarProductos() {
 
         listaProductos.clear();
@@ -187,7 +180,6 @@ public class ProductoController {
     }
 
 
-    // Botón Nuevo
     @FXML
     private void nuevoProducto() {
 
@@ -198,7 +190,7 @@ public class ProductoController {
     }
 
 
-    // Botón Guardar
+
     @FXML
     private void guardarProducto() {
 
@@ -276,7 +268,6 @@ public class ProductoController {
     }
 
 
-    // Botón Actualizar
     @FXML
     private void actualizarProducto() {
 
@@ -369,7 +360,6 @@ public class ProductoController {
     }
 
 
-    // Botón Eliminar
     @FXML
     private void eliminarProducto() {
 
@@ -446,7 +436,6 @@ public class ProductoController {
     }
 
 
-    // Botón Buscar
     @FXML
     private void buscar() {
 
@@ -495,7 +484,6 @@ public class ProductoController {
     }
 
 
-    // Botón Limpiar filtro
     @FXML
     private void limpiarFiltro() {
 
@@ -662,7 +650,6 @@ public class ProductoController {
     }
 
 
-    // Mostrar mensajes
     private void mostrarAlerta(Alert.AlertType tipo,
                                String titulo,
                                String mensaje) {
