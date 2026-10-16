@@ -60,12 +60,8 @@ public class ProductoController {
     @FXML
     private TableColumn<Producto, Integer> colStock;
 
-    private final ObservableList<Producto> listaProductos =
-            FXCollections.observableArrayList();
-
-    private final ProductoDAO productoDAO = new ProductoDAO();
-
-    private Producto productoSeleccionado;
+    @FXML
+    private Label lblContador;
 
 
     @FXML
@@ -75,6 +71,17 @@ public class ProductoController {
         configurarSeleccionTableView();
         cargarProductos();
     }
+    private void actualizarContador(){
+        lblContador.setText("Registros visibles: " + listaProductos.size());
+    }
+
+    private final ObservableList<Producto> listaProductos =
+            FXCollections.observableArrayList();
+
+    private final ProductoDAO productoDAO = new ProductoDAO();
+
+    private Producto productoSeleccionado;
+
 
     private void configurarTabla() {
 
@@ -168,6 +175,7 @@ public class ProductoController {
             List<Producto> productos = productoDAO.listarProductos();
 
             listaProductos.addAll(productos);
+            actualizarContador();
 
         } catch (Exception e) {
 
@@ -459,25 +467,29 @@ public class ProductoController {
                     );
 
 
+            System.out.println("Texto buscado: " + texto);
+            System.out.println("Categoria: " + categoria);
+            System.out.println("Solo existencia: " + soloExistencia);
+            System.out.println("Productos encontrados: " + productos.size());
+
+            for (Producto producto : productos) {
+                System.out.println(producto.getCodigo() + " - " + producto.getNombre()
+                );
+            }
+
+
             listaProductos.clear();
-
             listaProductos.addAll(productos);
-
-
+            actualizarContador();
             if (productos.isEmpty()) {
-
-                mostrarAlerta(
-                        Alert.AlertType.INFORMATION,
-                        "Sin coincidencias",
+                mostrarAlerta(Alert.AlertType.INFORMATION, "Sin coincidencias",
                         "No se encontraron productos."
                 );
             }
 
         } catch (Exception e) {
-
-            mostrarAlerta(
-                    Alert.AlertType.ERROR,
-                    "Error",
+            System.out.println("Error al buscar: " + e.getMessage());
+            mostrarAlerta(Alert.AlertType.ERROR, "Error",
                     "No se pudo realizar la búsqueda."
             );
         }
@@ -488,24 +500,16 @@ public class ProductoController {
     private void limpiarFiltro() {
 
         txtBuscar.clear();
-
         cmbCategoriaFiltro.setValue("Todas");
-
         chkExistencia.setSelected(false);
-
         cargarProductos();
     }
 
-
-    // Botón Recargar
     @FXML
     private void recargar() {
-
         cargarProductos();
     }
 
-
-    // Limpiar los campos del formulario
     private void limpiarFormulario() {
 
         txtCodigo.clear();
@@ -515,8 +519,6 @@ public class ProductoController {
         txtStock.clear();
     }
 
-
-    // Validar los datos ingresados
     private boolean validarCampos() {
 
         String codigo =

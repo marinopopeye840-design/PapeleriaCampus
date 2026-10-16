@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="723.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.papeleriacampus.controller.ProductoController">
+<AnchorPane prefHeight="768.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.papeleriacampus.controller.ProductoController">
    <children>
       <Label layoutX="164.0" layoutY="14.0" text="Catalogo de productos">
          <font>
@@ -68,16 +68,17 @@
       <Button fx:id="btnBuscar" layoutX="94.0" layoutY="402.0" mnemonicParsing="false" onAction="#buscar" text="Buscar" />
       <Button fx:id="btnLimpiarFiltro" layoutX="156.0" layoutY="402.0" mnemonicParsing="false" onAction="#limpiarFiltro" text="Limpiar  filtro" />
       <Button fx:id="btnRecargar" layoutX="257.0" layoutY="402.0" mnemonicParsing="false" onAction="#recargar" text="Recargar" />
-      <TableView fx:id="btlProductos" layoutX="47.0" layoutY="458.0" prefHeight="200.0" prefWidth="459.0">
+      <TableView fx:id="btlProductos" layoutX="47.0" layoutY="458.0" prefHeight="251.0" prefWidth="484.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="colCodigo" prefWidth="75.0" text="Codigo" />
             <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombre" />
-            <TableColumn fx:id="colCategoria" prefWidth="75.0" text="Categoria" />
-            <TableColumn fx:id="colPrecio" prefWidth="75.0" text="Precio" />
-            <TableColumn fx:id="colStock" prefWidth="75.0" text="Strock" />
+            <TableColumn fx:id="colCategoria" prefWidth="85.20001220703125" text="Categoria" />
+            <TableColumn fx:id="colPrecio" prefWidth="82.0" text="Precio" />
+            <TableColumn fx:id="colStock" prefWidth="82.39999389648438" text="Strock" />
         </columns>
       </TableView>
+       <Label fx:id="lblContador" layoutX="42.0" layoutY="715.0" text="Registros visibles: 0" />
       <Separator layoutY="440.0" prefHeight="3.0" prefWidth="578.0" />
    </children>
 </AnchorPane>
