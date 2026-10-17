@@ -10,13 +10,12 @@ public class ConexionBD {
 
     private static final String USUARIO = "postgres";
 
-    private static final String CONTRASENA = "popeye11";
-
+    private static final String CONTRASENA =
+            System.getenv("DB_PASSWORD");
 
 
     public static Connection getConexion() throws SQLException {
 
-        return DriverManager.getConnection(URL, USUARIO, CONTRASENA
-        );
+        return DriverManager.getConnection(URL, USUARIO, CONTRASENA);
     }
 }

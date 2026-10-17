@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductoDAO {
+
     public List<Producto> listarProductos() throws SQLException {
 
         List<Producto> lista = new ArrayList<>();
@@ -42,7 +43,6 @@ public class ProductoDAO {
 
         return lista;
     }
-
 
 
     public boolean insertarProducto(Producto producto) throws SQLException {
@@ -227,7 +227,8 @@ public class ProductoDAO {
 
                 while (rs.next()) {
 
-                    Producto producto = new Producto(rs.getInt("id_producto"),
+                    Producto producto = new Producto(
+                            rs.getInt("id_producto"),
                             rs.getString("codigo"),
                             rs.getString("nombre"),
                             rs.getString("categoria"),
